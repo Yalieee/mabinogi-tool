@@ -2,12 +2,6 @@ import ctypes, sys
 import time
 from directkeys import PressKey, ReleaseKey, DIK_1, DIK_2, DIK_3, DIK_4, DIK_5, DIK_6, DIK_ESCAPE
 
-def is_admin():
-    try:
-        return ctypes.windll.shell32.IsUserAnAdmin()
-    except:
-        return False
-
 def play(key, sleep_time):
     PressKey(key)
     ReleaseKey(key)
@@ -27,7 +21,7 @@ def main():
         play(DIK_6, 26)
 
 if __name__ == '__main__':
-    if is_admin():
+    if ctypes.windll.shell32.IsUserAnAdmin():
         main()
     else:
-        ctypes.windll.shell32.ShellExecuteW(None, u"runas", unicode(sys.executable), unicode(__file__), None, 1)
+        ctypes.windll.shell32.ShellExecuteW(None, u"runas", sys.executable, __file__, None, 1)
