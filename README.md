@@ -34,3 +34,13 @@ to
 if __name__ == '__main__':
     main()
 ```
+
+## Mouse Auto Click
+### Description
+This tool can click the left button automatically. The default frequency is 0.5 seconds.
+
+### How to Use
+0. pip3 install pypiwin32
+1. Run autoclick.py
+2. Move the cursor to the place you want. You have 5 seconds to do it.
+3. The process is stop when you move you cursor again.
